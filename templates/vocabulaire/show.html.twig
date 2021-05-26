@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vocabulaire{% endblock %}
+
+{% block body %}
+    <h1>Vocabulaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ vocabulaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Mot</th>
+                <td>{{ vocabulaire.mot }}</td>
+            </tr>
+            <tr>
+                <th>Kana</th>
+                <td>{{ vocabulaire.kana }}</td>
+            </tr>
+            <tr>
+                <th>Romaji</th>
+                <td>{{ vocabulaire.romaji }}</td>
+            </tr>
+            <tr>
+                <th>Sens</th>
+                <td>{{ vocabulaire.sens }}</td>
+            </tr>
+            <tr>
+                <th>Contexte</th>
+                <td>{{ vocabulaire.contexte }}</td>
+            </tr>
+            <tr>
+                <th>Jlpt</th>
+                <td>{{ vocabulaire.jlpt }}</td>
+            </tr>
+            <tr>
+                <th>Accent</th>
+                <td>{{ vocabulaire.accent }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('vocabulaire_index') }}">back to list</a>
+
+    <a href="{{ path('vocabulaire_edit', {'id': vocabulaire.id}) }}">edit</a>
+
+    {{ include('vocabulaire/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Vocabulaire{% endblock %}
+
+{% block body %}
+    <h1>Edit Vocabulaire</h1>
+
+    {{ include('vocabulaire/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('vocabulaire_index') }}">back to list</a>
+
+    {{ include('vocabulaire/_delete_form.html.twig') }}
+{% endblock %}

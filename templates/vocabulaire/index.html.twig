@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vocabulaire index{% endblock %}
+
+{% block body %}
+    <h1>Vocabulaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Mot</th>
+                <th>Kana</th>
+                <th>Romaji</th>
+                <th>Sens</th>
+                <th>Contexte</th>
+                <th>Jlpt</th>
+                <th>Accent</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for vocabulaire in vocabulaires %}
+            <tr>
+                <td>{{ vocabulaire.id }}</td>
+                <td>{{ vocabulaire.mot }}</td>
+                <td>{{ vocabulaire.kana }}</td>
+                <td>{{ vocabulaire.romaji }}</td>
+                <td>{{ vocabulaire.sens }}</td>
+                <td>{{ vocabulaire.contexte }}</td>
+                <td>{{ vocabulaire.jlpt }}</td>
+                <td>{{ vocabulaire.accent }}</td>
+                <td>
+                    <a href="{{ path('vocabulaire_show', {'id': vocabulaire.id}) }}">show</a>
+                    <a href="{{ path('vocabulaire_edit', {'id': vocabulaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('vocabulaire_new') }}">Create new</a>
+{% endblock %}

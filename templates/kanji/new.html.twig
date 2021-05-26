@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Kanji{% endblock %}
+
+{% block body %}
+    <h1>Create new Kanji</h1>
+
+    {{ include('kanji/_form.html.twig') }}
+
+    <a href="{{ path('kanji_index') }}">back to list</a>
+{% endblock %}

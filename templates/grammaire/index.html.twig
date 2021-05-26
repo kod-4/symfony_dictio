@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Grammaire index{% endblock %}
+
+{% block body %}
+    <h1>Grammaire index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Jlpt</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for grammaire in grammaires %}
+            <tr>
+                <td>{{ grammaire.id }}</td>
+                <td>{{ grammaire.titre }}</td>
+                <td>{{ grammaire.description }}</td>
+                <td>{{ grammaire.jlpt }}</td>
+                <td>
+                    <a href="{{ path('grammaire_show', {'id': grammaire.id}) }}">show</a>
+                    <a href="{{ path('grammaire_edit', {'id': grammaire.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('grammaire_new') }}">Create new</a>
+{% endblock %}

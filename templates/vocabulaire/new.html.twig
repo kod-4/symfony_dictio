@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Vocabulaire{% endblock %}
+
+{% block body %}
+    <h1>Create new Vocabulaire</h1>
+
+    {{ include('vocabulaire/_form.html.twig') }}
+
+    <a href="{{ path('vocabulaire_index') }}">back to list</a>
+{% endblock %}

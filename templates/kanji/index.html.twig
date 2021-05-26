@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Kanji index{% endblock %}
+
+{% block body %}
+    <h1>Kanji index</h1>
+<a class="btn btn-info" href="{{ path('kanji_new') }}">Create new</a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Caractere</th>
+                <th>Cle</th>
+                <th>Kunyomi</th>
+                <th>Onyomi</th>
+                <th>Stroke</th>
+                <th>Sens</th>
+                <th>Niveau</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for kanji in kanjis %}
+            <tr>
+                <td>{{ kanji.id }}</td>
+                <td>{{ kanji.caractere }}</td>
+                <td>{{ kanji.cle }}</td>
+                <td>{{ kanji.kunyomi }}</td>
+                <td>{{ kanji.onyomi }}</td>
+                <td>{{ kanji.stroke }}</td>
+                <td>{{ kanji.sens }}</td>
+                <td>{{ kanji.niveau }}</td>
+                <td>
+                    <a href="{{ path('kanji_show', {'id': kanji.id}) }}">show</a>
+                    <a href="{{ path('kanji_edit', {'id': kanji.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Kanji{% endblock %}
+
+{% block body %}
+    <h1>Edit Kanji</h1>
+
+    {{ include('kanji/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('kanji_index') }}">back to list</a>
+
+    {{ include('kanji/_delete_form.html.twig') }}
+{% endblock %}
